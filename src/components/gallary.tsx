@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useAccount } from "wagmi";
 import { axiosInstance } from "../config/api";
 import { motion } from "motion/react";
+import { Loader2 } from "lucide-react";
 
 export interface Nft {
   name: string;
@@ -31,7 +32,9 @@ export default function Gallary() {
         Your NFT Gallery
       </h2>
       {isLoading ? (
-        <div className=" bg-red-500 mx-auto w-full"></div>
+        <div className="  mx-auto flex justify-center w-full">
+          <Loader2 className="w-6 h-6 animate-spin" />
+        </div>
       ) : nfts?.length === 0 ? (
         <div className="text-gray-400">
           No NFTs found, please mint your first one using the widget above!
