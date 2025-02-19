@@ -2,6 +2,8 @@
 
 A React-based frontend for minting and displaying NFTs, integrated with a Web3 smart contract and backend API.
 
+PS: The backend is hosted on render on a hobby plan and so it would spin down due to inactivity. The first request might be slow because of this 
+
 ## 🔗 Live Links
 
 - **Frontend Deployment**: [https://cytric-assessment-frontend.vercel.app/](https://cytric-assessment-frontend.vercel.app/)
