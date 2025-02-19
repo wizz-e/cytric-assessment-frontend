@@ -1,50 +1,88 @@
-# React + TypeScript + Vite
+# NFT Minting Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based frontend for minting and displaying NFTs, integrated with a Web3 smart contract and backend API.
 
-Currently, two official plugins are available:
+## 🔗 Live Links
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Frontend Deployment**: [https://cytric-assessment-frontend.vercel.app/](https://cytric-assessment-frontend.vercel.app/)
+- **Backend API**: [https://cytric-assessment-backend.onrender.com](https://cytric-assessment-backend.onrender.com)
+- **API Documentation**: [Swagger UI](https://cytric-assessment-backend.onrender.com/api/)
+- **Demo Video**: [Loom Walkthrough](https://www.loom.com/share/38977d18abbf42c5bdfb4fda16e9a5b1?sid=9481f3ad-5082-4333-95b6-ff7399147acc)
 
-## Expanding the ESLint configuration
+## 🛠️ API Routes
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Store NFT Data
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```http
+POST /nfts
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+**Parameters**:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```json
+{
+  "name": "string",
+  "description": "string",
+  "logoUrl": "string",
+  "nftId": number,
+  "userWalletAddress": "string"
+}
 ```
+
+### Get NFT Data by ID
+
+```http
+GET /nfts/{nftId}
+```
+
+### Get NFT Gallery by Wallet
+
+```http
+GET /nfts/user/{walletAddress}
+```
+
+## 📚 Related Repositories
+
+- **Backend Source Code**: [cytric-assessment-backend](https://github.com/wisdomsGit21/cytric-assessment-backend)
+
+## 🚀 Features
+
+- Wallet connection using RainbowKit
+- NFT minting with form validation
+- Responsive NFT gallery
+- Real-time transaction status updates
+- Error handling and loading states
+
+## ⚙️ Development Setup
+
+1. Clone repository
+
+```bash
+git clone https://github.com/your-username/frontend-repo.git
+```
+
+2. Install dependencies
+
+```bash
+npm install
+```
+
+3. Start development server
+
+```bash
+npm run dev
+```
+
+## 🌐 Environment Variables
+
+Create `.env` file:
+
+```env
+VITE_API_URL=https://cytric-assessment-backend.onrender.com
+VITE_CONTRACT_ADDRESS=0x743f4...............................
+VITE_PROJECT_ID=dda2c7...................................
+```
+
+## 📄 License
+
+MIT License
